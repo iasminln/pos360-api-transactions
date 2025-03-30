@@ -49,9 +49,7 @@ export async function transactionsRoutes (app: FastifyInstance) {
     return { summary }
   })
 
-  app.post('/', {
-    preHandler: [checkSessionIdExist]
-  }, async (request, reply) => {
+  app.post('/', async (request, reply) => {
     const createTransactionBodySchema = z.object({
       title: z.string(),
       amount: z.number(),
